@@ -459,6 +459,17 @@ function initSectionAnimations() {
           sectionTitle.style.transform = "translateY(0)";
         }
 
+        // Animate project cards
+        if (section.id === "projects") {
+          const projectCards = section.querySelectorAll(".project-card");
+          projectCards.forEach((card, index) => {
+            setTimeout(() => {
+              card.style.opacity = "1";
+              card.style.transform = "translateY(0)";
+            }, 200 * index);
+          });
+        }
+
         // Animate skill items with delay
         if (section.id === "skills") {
           const skillItems = section.querySelectorAll(".skill-item");

@@ -195,20 +195,20 @@ nav {
 .hero {
   min-height: 100vh;
   padding-top: 100px;
-  background: linear-gradient(
-    135deg,
-    rgba(37, 99, 235, 0.1),
-    rgba(16, 185, 129, 0.1)
-  );
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../images/profile.jpg") no-repeat center center/cover;
   display: flex;
   align-items: center;
   text-align: center;
+  position: relative;
+  color: white;
 }
 
 .hero-content h1 {
   font-size: 3rem;
   margin-bottom: 10px;
-  color: var(--dark-color);
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-content h2 {
@@ -216,6 +216,7 @@ nav {
   margin-bottom: 20px;
   color: var(--primary-color);
   font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .hero-content p {
@@ -224,6 +225,8 @@ nav {
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
+  color: #f8fafc;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .cta-buttons {
@@ -339,7 +342,7 @@ nav {
 /* Skills Section */
 .skills {
   padding: 100px 0;
-  background-color: #f1f5f9;
+  background-color: var(--light-color);
 }
 
 .skills-content {
@@ -728,6 +731,96 @@ footer {
   font-size: 0.9rem;
 }
 
+/* Projects Section */
+.projects {
+  padding: 100px 0;
+  background-color: white;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.project-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 2rem;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.project-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.05);
+}
+
+.project-content {
+  padding: 1.5rem;
+}
+
+.project-content h3 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.project-content p {
+  color: #666;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.project-links .btn {
+  padding: 0.5rem 1.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.project-links .btn-primary {
+  background: #007bff;
+  color: #fff;
+}
+
+.project-links .btn-primary:hover {
+  background: #0056b3;
+}
+
+.project-links .btn-secondary {
+  background: #6c757d;
+  color: #fff;
+}
+
+.project-links .btn-secondary:hover {
+  background: #5a6268;
+}
+
 /* Responsive Design - Enhanced */
 
 /* Large screens (1200px and up) */
@@ -808,6 +901,10 @@ footer {
 
   .certificates {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
 }
 
@@ -906,6 +1003,14 @@ footer {
   .certificate-item {
     padding: 12px;
   }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-image {
+    height: 180px;
+  }
 }
 
 /* Extra small screens (575px and below) */
@@ -977,6 +1082,14 @@ footer {
 
   .skills-content {
     gap: 25px;
+  }
+
+  .project-content h3 {
+    font-size: 1.3rem;
+  }
+
+  .project-tech span {
+    font-size: 0.75rem;
   }
 }
 
