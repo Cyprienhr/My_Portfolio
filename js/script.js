@@ -18,9 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // Add resize handler for responsive adjustments
   handleResponsiveAdjustments();
 
-  // Add scroll indicator to hero section
-  addScrollIndicator();
-
   // Initialize EmailJS
   initEmailJS();
 
@@ -384,59 +381,6 @@ function typeEffect() {
         clearInterval(typeInterval);
       }
     }, 100);
-  }
-}
-
-// Add animated scroll indicator (optional)
-function addScrollIndicator() {
-  const hero = document.querySelector(".hero");
-
-  if (hero) {
-    const scrollIndicator = document.createElement("div");
-    scrollIndicator.className = "scroll-indicator";
-    scrollIndicator.innerHTML = '<i class="fas fa-chevron-down"></i>';
-    scrollIndicator.style.position = "absolute";
-    scrollIndicator.style.bottom = "30px";
-    scrollIndicator.style.left = "50%";
-    scrollIndicator.style.transform = "translateX(-50%)";
-    scrollIndicator.style.color = "var(--primary-color)";
-    scrollIndicator.style.fontSize = "24px";
-    scrollIndicator.style.cursor = "pointer";
-    scrollIndicator.style.animation = "bounce 2s infinite";
-
-    // Add keyframes for bounce animation
-    const style = document.createElement("style");
-    style.innerHTML = `
-      @keyframes bounce {
-        0%, 20%, 50%, 80%, 100% {
-          transform: translateY(0) translateX(-50%);
-        }
-        40% {
-          transform: translateY(-20px) translateX(-50%);
-        }
-        60% {
-          transform: translateY(-10px) translateX(-50%);
-        }
-      }
-    `;
-    document.head.appendChild(style);
-
-    hero.appendChild(scrollIndicator);
-
-    scrollIndicator.addEventListener("click", () => {
-      const aboutSection = document.querySelector("#about");
-      if (aboutSection) {
-        const headerOffset = window.innerWidth <= 768 ? 70 : 80;
-        const elementPosition = aboutSection.getBoundingClientRect().top;
-        const offsetPosition =
-          elementPosition + window.pageYOffset - headerOffset;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth",
-        });
-      }
-    });
   }
 }
 
